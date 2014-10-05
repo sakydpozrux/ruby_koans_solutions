@@ -13,8 +13,19 @@
 # and
 #   about_triangle_project_2.rb
 #
+
+def is_equilateral(a, b, c)
+	return a == b && b == c
+end
+
+def is_isosceles(a, b, c)
+	return a == b || a == c || b == c
+end
+
 def triangle(a, b, c)
-  # WRITE THIS CODE
+  return :equilateral if is_equilateral a, b, c
+  return :isosceles   if is_isosceles a, b, c
+  return :scalene
 end
 
 # Error class used in part 2.  No need to change this code.
