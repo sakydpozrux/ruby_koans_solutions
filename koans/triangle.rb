@@ -14,6 +14,10 @@
 #   about_triangle_project_2.rb
 #
 
+def is_valid(a, b, c)
+	return a > 0 && b > 0 && c > 0 && a + b > c && a + c > b && b + c > a
+end
+
 def is_equilateral(a, b, c)
 	return a == b && b == c
 end
@@ -23,6 +27,9 @@ def is_isosceles(a, b, c)
 end
 
 def triangle(a, b, c)
+  unless is_valid a, b, c
+  	raise TriangleError
+  end
   return :equilateral if is_equilateral a, b, c
   return :isosceles   if is_isosceles a, b, c
   return :scalene
